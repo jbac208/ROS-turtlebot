@@ -10,11 +10,11 @@ class SpinUntilBumper:
         self.rate = rospy.Rate(10)  # 10 Hz
 
         rospy.on_shutdown(self.shutdown)
+        rospy.spin()
 
     def bumper_callback(self, msg):
         if msg.PRESSED == 1:
-            rospy.loginfo("Bumper pressed!")
-            rospy.signal_shutdown("Bumper pressed")
+            rospy.signal_shutdown("Bumper pressed!")
         
 
     def spin(self):
