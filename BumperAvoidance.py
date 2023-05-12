@@ -16,11 +16,7 @@ class SpinUntilBumper:
     def bumper_callback(self, msg):
         if msg.PRESSED == 1:
             rospy.loginfo("Bumper pressed!")
-            self.stop_spinning()
-
-    def stop_spinning(self):
-        self.cmd_vel_pub.publish(Twist())  # Publish zero velocity to stop the robot
-        rospy.signal_shutdown("Bumper pressed")
+            rospy.signal_shutdown("Bumper pressed")
 
     def spin(self):
         rospy.loginfo("Moving...")
