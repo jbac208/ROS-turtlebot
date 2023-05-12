@@ -34,7 +34,7 @@ class SpinUntilBumper:
         # Stop turtlebot
         rospy.loginfo("Stop TurtleBot")
         # Default Twist has linear.x of 0 and angular.z of 0 (ie Stop)
-        self.cmd_vel.publish(Twist())
+        self.cmd_vel_pub.publish(Twist())
         # Sleep makes sure TurtleBot receive the stop command prior to shutting down the script
         rospy.sleep(1)
 
