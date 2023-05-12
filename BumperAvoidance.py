@@ -16,14 +16,17 @@ class SpinUntilBumper:
     def bumper_callback(self, msg):
         if msg.PRESSED == 1:
             rospy.loginfo("Bumper pressed!")
-            rospy.signal_shutdown("Bumper pressed")
+            self.shutdown()
+            return 1
+        else:
+            return 0
 
     def spin(self):
         rospy.loginfo("Moving...")
         twist = Twist()
         #twist.angular.z = 0.1
         twist.linear.x = 0.2
-        while not rospy.is_shutdown():
+        while not self.bumper_callback():
             self.cmd_vel_pub.publish(twist)
             self.rate.sleep()
 
