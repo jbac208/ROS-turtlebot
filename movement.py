@@ -25,7 +25,8 @@ class MovementNode():
         move_cmd = Twist()
 
         # Forward at 0.2m/s
-        move_cmd.linear.x = 0.2
+        move_cmd.linear.x = 0.1
+        move_cmd.angular.z = 0.2
 
         # Continue until ctrl + c
         while not rospy.is_shutdown():
