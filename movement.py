@@ -37,3 +37,12 @@ class MovementNode():
     def shutdown(self):
         # Stop turtlebot
         rospy.loginfo("Stop TurtleBot")
+        
+        # Default Twist has linear.x of 0 and angular.z of 0 (ie Stop)
+        self.cmd_vel.publish(Twist())
+
+        # Sleep makes sure TurtleBot receive the stop command prior to shutting down the script
+        rospy.sleep(1)
+
+if __name__ == '__main__':
+    MovementNode()
