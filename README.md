@@ -1,2 +1,2 @@
 # ROS-turtlebot
-Practice nodes for ROS on turtlebot2
+turtlebot 2 project 2023
